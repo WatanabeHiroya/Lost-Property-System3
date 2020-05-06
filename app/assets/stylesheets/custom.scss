@@ -2,7 +2,22 @@
 @import "bootstrap";
 
 
-/* debug */
+//universal
+
+body {
+  padding-top: 60px;
+}
+
+//typography
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+//debug
 
 .debug_dump {
   clear: both;
@@ -31,3 +46,15 @@
   color: #fff;
   text-decoration: none;
 }
+
+//ユーザー新規作成フォーム
+
+.label-signup {
+  margin-top: 5px;
+}
+
+.btn-signup {
+  margin-top: 10px;
+}
+
+
