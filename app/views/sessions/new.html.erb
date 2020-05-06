@@ -3,7 +3,7 @@
 
 <div class="cotainer">
   <div class="col-md-6 col-md-offset-3">
-    <%= form_with(scope: :sessions, url: login_path, local: true) do |f| %>
+    <%= form_with(scope: :session, url: login_path, local: true) do |f| %>
       <%= f.label :email, class: "label-loing" %>
       <%= f.email_field :email, class: "form-control" %>
       
