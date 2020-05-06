@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
   
   def create
-    @user = User.new(user_params)
+    @user = User.new(user_params) 
     if @user.save
       # ログイン処理
       flash[:success] = "新規作成に成功しました。"
