@@ -3,6 +3,7 @@
 
 <div class="container">
   <div class="col-md-10 col-md-offset-1">
+    <%= will_paginate %>
     <table class="table table-condensed table-hover" id="table-users">
       <thead>
         <tr>
@@ -13,9 +14,17 @@
         <% @users.each do |user| %>
           <tr>
             <td><%= link_to user.name, user %></td>
+            <td>
+              <% if current_user.admin? && !current_user?(user) %>
+                <%= link_to "削除", user, method: :delete,
+                    data: { confirm: "削除してよろしいですか？" },
+                    class: "btn btn-danger" %>
+              <% end %>
+            </td>
           </tr>
         <% end %>
       </tbody>
     </table>
+    <%= will_paginate %>
   </div>
 </div>
