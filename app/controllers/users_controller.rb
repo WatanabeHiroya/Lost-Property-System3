@@ -19,15 +19,12 @@ class UsersController < ApplicationController
   end
   
   def show
-    @user = User.find(params[:id])
   end
   
   def edit
-    @user = User.find(params[:id])
   end
   
   def update
-    @user = User.find(params[:id])
     if @user.updateattributes(user_params)
       flash[:success] = "ユーザー情報を更新しました。"
       redirect_to @user
@@ -59,6 +56,7 @@ class UsersController < ApplicationController
     # ログイン済みのユーザーか確認
     def logged_in_user
       unless logged_in?
+        store_location
         flash[:danger] = "ログインして下さい。"
         redirect_to login_url
       end
@@ -67,6 +65,6 @@ class UsersController < ApplicationController
     # アクセスしたユーザーが現在ログインしているユーザーか確認
     def correct_user
       @user = User.find(params[:id])
-      redirect_to root_url unless current_user(@user)
+      redirect_to(root_url) unless current_user?(@user) # @user == current_user
     end
 end
