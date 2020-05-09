@@ -24,6 +24,7 @@ class UsersController < ApplicationController
   end
   
   def show
+    @checklists = Checklist.where(user_id: @user.id)
   end
   
   def edit

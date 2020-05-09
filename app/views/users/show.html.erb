@@ -1,1 +1,26 @@
-<h1>user/show</h1>
+<div class="container">
+<h1><%= @user.name %>さんのチェックリスト</h1>
+  <div><%= link_to "新規作成", "#", class: "btn btn-primary btn-new-checklist" %></div>
+  <div class="col-md-10 col-md-offset-1">
+    
+    <table class="table table-condensed table-hover" id="table-users">
+      <thead>
+        <tr>
+          <th>出発日時</th>
+          <th>件名</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @checklists.each do |checklist| %>
+          <tr>
+            <td><%= checklist.object %></td>
+            <td><%= link_to "件名", "#" %></td>
+            <td><%= link_to "編集", "#", class: "btn btn-success btn-block" %></td>
+            <td><%= link_to "削除", "#", class: "btn btn-danger btn-block" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    
+  </div>
+</div>
