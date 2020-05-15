@@ -13,6 +13,7 @@
 ActiveRecord::Schema.define(version: 20200508090214) do
 
   create_table "checklists", force: :cascade do |t|
+    t.string "title"
     t.string "object"
     t.datetime "departure_time"
     t.text "note"
