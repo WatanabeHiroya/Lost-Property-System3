@@ -7,8 +7,14 @@
     <%= form_with(model: @checklist, local: true) do |f| %>
       <%= render 'shared/error_messages', object: @checklist %>
       
+      <p>日付</p>
+      
       <%= f.label :title, class: "label-#{yield(:class_text)}" %>
       <%= f.text_field :title, class: "form-control" %>
+      
+      <%= f.label :object, class: "label-#{yield(:class_text)}" %>
+      <%= f.text_field :object, class: "form-control" %>
+      
       
     <% end %>
   </div>

@@ -1,6 +1,7 @@
 class ChecklistsController < ApplicationController
   
   def new
+    @user = User.find(params[:id])
   end
   
   def create
