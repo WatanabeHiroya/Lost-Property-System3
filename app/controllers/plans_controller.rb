@@ -1,6 +1,7 @@
-class ChecklistsController < ApplicationController
+class PlansController < ApplicationController
   
   def new
+    @user = User.find(params[:id])
   end
   
   def create
@@ -21,6 +22,4 @@ class ChecklistsController < ApplicationController
   
   
   private
-  
-  
 end

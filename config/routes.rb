@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   
   resources :users do
     member do
-      resources :checklists
+      resources :plans
     end
   end
 end

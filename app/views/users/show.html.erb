@@ -1,6 +1,6 @@
 <div class="container">
 <h1><%= @user.name %>さんのチェックリスト</h1>
-  <div><%= link_to "新規作成", new_user_checklist_path(@user), class: "btn btn-primary btn-new-checklist" %></div>
+  <div><%= link_to "新規作成", new_plan_path(@user), class: "btn btn-primary btn-new-checklist" %></div>
   <div class="col-md-10 col-md-offset-1">
     
     <table class="table table-condensed table-hover" id="table-users">
@@ -11,7 +11,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @checklists.each do |checklist| %>
+        <% @plans.each do |plan| %>
           <tr>
             <td><%= checklist.object %></td>
             <td><%= link_to "件名", "#" %></td>
