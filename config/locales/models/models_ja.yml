@@ -2,6 +2,8 @@ ja:
   activerecord:
     models:
       user: ユーザー
+      plan: プラン
+      checklist: チェックリスト
     attributes:
         user:
           id: ID
@@ -11,3 +13,13 @@ ja:
           password_confirmation: パスワード再入力
           created_at: 作成日
           updated_at: 更新日
+        plan:
+          subject: 件名
+          departure_at: 出発時間
+          user: ユーザーID
+          item: チェックリスト項目
+        checklist:
+          item: チェックリスト項目
+          check: チェック
+          plan: プランID
+          

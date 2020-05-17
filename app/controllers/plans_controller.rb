@@ -8,7 +8,7 @@ class PlansController < ApplicationController
   def create
     @user = User.find(params[:id])
     @plan = Plan.new(plan_params)
-    @plan.user_id = @user.id
+    @plan.user_id = @user.id # user.idがnilでエラーとなるため
     if @plan.save
       flash[:success] = "チェックリストを作成しました。"
       redirect_to @user
@@ -18,7 +18,7 @@ class PlansController < ApplicationController
   end
   
   def show
-    
+    @checklists = Checklist.where(plan_id: params[:id])
   end
   
   def edit
