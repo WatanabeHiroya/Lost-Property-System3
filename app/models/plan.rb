@@ -7,10 +7,10 @@ class Plan < ApplicationRecord
   validates :departure_at, presence: true
   
   # 未来の日時を指定
- # validate :departure_at_must_be_later_than_current_date
+  validate :departure_at_must_be_later_than_current_date
   
   def departure_at_must_be_later_than_current_date
-    errors.add(:departure_at, "現在日時より後の日時を指定して下さい。") if departure_at < Time.now
+    errors.add(:departure_at, "は現在日時より後の日時を指定して下さい。") if departure_at < Time.now
   end
 
 end

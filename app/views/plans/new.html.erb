@@ -7,7 +7,7 @@
   <div class="col-md-8 col-md-offset-3">
     <%= form_with(model: @plan, local: true) do |f| %>
       <%= render 'shared/error_messages2', object: @plan %>
-    
+      
       <%= f.label :departure_at, class: "label-#{yield(:class_text)}"%>
       <%= f.datetime_field :departure_at, class: "form-control" %>
   

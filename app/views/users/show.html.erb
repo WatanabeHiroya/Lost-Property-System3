@@ -13,9 +13,9 @@
       <tbody>
         <% @plans.each do |plan| %>
           <tr>
-            <td><%= plan.departure_at %></td>
-            <td><%= link_to plan.subject, "#" %></td>
-            <td><%= link_to "編集", "#", class: "btn btn-success btn-block" %></td>
+            <td><%= l plan.departure_at, format: :default2 %></td>
+            <td><%= link_to plan.subject, plan_path %></td>
+            <td><%= link_to "編集", edit_plan_path, class: "btn btn-success btn-block" %></td>
             <td><%= link_to "削除", "#", class: "btn btn-danger btn-block" %></td>
           </tr>
         <% end %>
