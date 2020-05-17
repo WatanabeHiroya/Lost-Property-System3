@@ -1,10 +1,20 @@
 class PlansController < ApplicationController
   
   def new
-    @user = User.find(params[:id])
+   # @user = User.find(params[:id])
+    @plan = Plan.new
   end
   
   def create
+    @user = User.find(params[:id])
+    @plan = Plan.new(plan_params)
+    @plan.user_id = @user.id
+    if @plan.save
+      flash[:success] = "チェックリストを作成しました。"
+      redirect_to @user
+    else
+      render :new
+    end
   end
   
   def show
@@ -22,4 +32,8 @@ class PlansController < ApplicationController
   
   
   private
+  
+  def plan_params
+    params.require(:plan).permit(:subject, :departure_at, checklists_attributes: [:id, :plan_id, :item, :check, :_destroy])
+  end
 end

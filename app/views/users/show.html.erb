@@ -13,8 +13,7 @@
       <tbody>
         <% @plans.each do |plan| %>
           <tr>
-            <td><%= checklist.object %></td>
-            <td><%= link_to "件名", "#" %></td>
+            <td><%= link_to plan.subject, "#" %></td>
             <td><%= link_to "編集", "#", class: "btn btn-success btn-block" %></td>
             <td><%= link_to "削除", "#", class: "btn btn-danger btn-block" %></td>
           </tr>
