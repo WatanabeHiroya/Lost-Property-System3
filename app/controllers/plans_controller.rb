@@ -6,12 +6,12 @@ class PlansController < ApplicationController
   end
   
   def create
-    @user = User.find(params[:id])
+  #  @user = User.find(params[:id])
     @plan = Plan.new(plan_params)
-    @plan.user_id = @user.id # user.idがnilでエラーとなるため
+    @plan.user_id = current_user.id # user.idがnilでエラーとなるため
     if @plan.save
       flash[:success] = "チェックリストを作成しました。"
-      redirect_to @user
+      redirect_to @current_user
     else
       render :new
     end
@@ -22,6 +22,7 @@ class PlansController < ApplicationController
   end
   
   def edit
+    
   end
   
   def update
