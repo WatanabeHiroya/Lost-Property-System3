@@ -22,10 +22,17 @@ class PlansController < ApplicationController
   end
   
   def edit
-    
+    @plan = Plan.find(params[:id])
   end
   
   def update
+    @plan = Plan.find(params[:id])
+    if @plan.update_attributes(plan_params)
+      flash[:success] = "チェックリストを更新しました。"
+      redirect_to current_user
+    else
+      render :edit
+    end
   end
   
   def destroy
