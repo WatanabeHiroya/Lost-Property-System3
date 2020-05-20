@@ -27,7 +27,7 @@ class PlansController < ApplicationController
   
   def update
     @plan = Plan.find(params[:id])
-    if @plan.update_attributes(plan_params)
+    if @plan.update_attributes(plan_params) # フォーム追加したものだけが飛んできている
       flash[:success] = "チェックリストを更新しました。"
       redirect_to current_user
     else
