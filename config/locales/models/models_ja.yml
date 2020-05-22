@@ -17,7 +17,7 @@ ja:
           subject: 件名
           departure_at: 出発時間
           user: ユーザーID
-          item: チェックリスト項目
+          item: 持ち物
         checklist:
           item: チェックリスト項目
           check: チェック

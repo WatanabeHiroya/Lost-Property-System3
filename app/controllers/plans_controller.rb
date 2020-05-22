@@ -1,4 +1,5 @@
 class PlansController < ApplicationController
+  before_action :set_plan, only: [:edit, :update, :show, :destroy]
   
   def new
    # @user = User.find(params[:id])
@@ -18,15 +19,12 @@ class PlansController < ApplicationController
   end
   
   def show
-    @checklists = Checklist.where(plan_id: params[:id])
   end
   
   def edit
-    @plan = Plan.find(params[:id])
   end
   
   def update
-    @plan = Plan.find(params[:id])
     if @plan.update_attributes(plan_params) # フォーム追加したものだけが飛んできている
       flash[:success] = "チェックリストを更新しました。"
       redirect_to current_user
@@ -36,6 +34,9 @@ class PlansController < ApplicationController
   end
   
   def destroy
+    @plan.destroy
+    flash[:success] = "#{@plan.subject}を削除しました。"
+    redirect_to user_url(@plan.user_id)
   end
   
   
@@ -43,5 +44,11 @@ class PlansController < ApplicationController
   
   def plan_params
     params.require(:plan).permit(:subject, :departure_at, checklists_attributes: [:id, :plan_id, :item, :check, :_destroy])
+  end
+  
+  # beforeフィルター
+  
+  def set_plan
+    @plan = Plan.find(params[:id])
   end
 end
