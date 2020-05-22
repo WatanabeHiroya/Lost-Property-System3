@@ -39,6 +39,8 @@ class PlansController < ApplicationController
     redirect_to user_url(@plan.user_id)
   end
   
+  def check
+  end
   
   private
   
@@ -49,6 +51,6 @@ class PlansController < ApplicationController
   # beforeフィルター
   
   def set_plan
-    @plan = Plan.find(params[:id])
+    @plan = Plan.find(params[:user_id])
   end
 end

@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   delete '/login', to: 'sessions#destroy'
   
   resources :users do
-    member do
-      resources :plans
+    resources :plans do
+      member do
+        patch :check
+      end
     end
   end
 end

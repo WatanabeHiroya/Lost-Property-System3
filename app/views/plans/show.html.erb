@@ -4,7 +4,7 @@
   <h1>件名</h1>
   <h2>出発時間</h2>
   <div class="col-md-10 col-md-offset-1">
-    <%= form_with(model: @checklist, url: , local: true, method: :patch) do |f| %>
+    <%= form_with(model: @checklist, url: check_user_plan_path, local: true, method: :patch) do |f| %>
       <table class="table table-condensed table-hover" id="table-users">
         <thead>
           <tr>
@@ -16,7 +16,7 @@
           <% @plan.checklists.each do |checklist| %>
           <tr>
             <td><%= f.check_box(:check, { :checked => false }, "1", "0") %></td>
-            <td><%= f.label :checklist.item %></td>
+            <td><%= f.label :item %></td>
           </tr>
           <% end %>
         </tbody>
