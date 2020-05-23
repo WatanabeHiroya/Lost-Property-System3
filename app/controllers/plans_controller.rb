@@ -1,5 +1,5 @@
 class PlansController < ApplicationController
-  before_action :set_plan, only: [:edit, :update, :show, :destroy]
+  before_action :set_plan, only: [:edit, :update, :show, :check, :destroy]
   
   def new
    # @user = User.find(params[:id])
@@ -40,12 +40,22 @@ class PlansController < ApplicationController
   end
   
   def check
+    check_params.each do |id, other|
+      checklist = Checklist.find(id)
+      checklist.update_attributes(other)
+    end
+    flash[:success] = "チェックしました。"
+    redirect_to current_user
   end
   
   private
   
   def plan_params
     params.require(:plan).permit(:subject, :departure_at, checklists_attributes: [:id, :plan_id, :item, :check, :_destroy])
+  end
+  
+  def check_params
+    params.permit(checklists: [:check])[:checklists]
   end
   
   # beforeフィルター

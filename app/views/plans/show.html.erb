@@ -1,8 +1,10 @@
 <% provide(:title, 'チェックページ') %>
+<% provide(:class_text, 'check') %>
+<% provide(:button_text, '送信') %>
 
 <div class="container">
-  <h1>件名</h1>
-  <h2>出発時間</h2>
+  <h1><%= @plan.subject %></h1>
+  <h2><%= l @plan.departure_at, format: :default2 %></h2>
   <div class="col-md-10 col-md-offset-1">
     <%= form_with(model: @checklist, url: check_user_plan_path, local: true, method: :patch) do |f| %>
       <table class="table table-condensed table-hover" id="table-users">
@@ -14,13 +16,16 @@
         </thead>
         <tbody>
           <% @plan.checklists.each do |checklist| %>
+          <%= fields_for "checklists[]", checklist do |c| %>
           <tr>
-            <td><%= f.check_box(:check, { :checked => false }, "1", "0") %></td>
-            <td><%= f.label :item %></td>
+            <td><%= c.check_box :check %></td>
+            <td><%= checklist.item %></td>
           </tr>
+          <% end %>
           <% end %>
         </tbody>
       </table>
+      <%= f.submit yield(:button_text), class: "btn btn-primary btn-#{yield(:class_text)}" %>
     <% end %>
   </div>
 </div>
