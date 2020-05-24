@@ -15,6 +15,7 @@ gem 'turbolinks',   '~> 5'
 gem 'jbuilder',     '~> 2.5'
 gem 'nested_form_fields'
 gem 'pry-rails'
+gem 'whenever', require: false
 
 group :development, :test do
   gem 'sqlite3'
