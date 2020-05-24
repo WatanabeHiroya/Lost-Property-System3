@@ -7,11 +7,11 @@ namespace :test_system do
  
     @plans = Plan.all
     @plans.each do |p| 
+      # 出発時間を過ぎたら処理
       if p.departure_at < Time.zone.now
         begin
           # 処理を記述
-          user = User.find(2)
-          user.update_attributes!(name: "!!!")
+          send_mail(p)
    
         rescue => e
           #何かしらエラーが起きたら、エラーログの書き込み ただし次のユーザーの処理へは進む

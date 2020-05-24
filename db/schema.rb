@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 20200516131045) do
 
   create_table "checklists", force: :cascade do |t|
     t.string "item"
-    t.string "check"
+    t.string "check", default: "0"
     t.integer "plan_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
