@@ -1,16 +1,15 @@
 namespace :test_system do
-  desc "これはテストです。"
+  desc "出発時間にメール送信"
   task test: :environment do
     #ここから処理を書いていく
     #定期実行する際に、そのログを取っておくのは大事。ログがないと定期実行でエラーが起きても分からない。
     logger = Logger.new 'log/test.log'
  
-    @plans = Plan.all
-    @plans.each do |p| 
+    Plan.all.each do |p| 
       # 出発時間を過ぎたら処理
       if p.departure_at < Time.zone.now
         begin
-          # 処理を記述
+          # 処理
           send_mail(p)
    
         rescue => e
