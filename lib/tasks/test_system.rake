@@ -5,12 +5,12 @@ namespace :test_system do
     #定期実行する際に、そのログを取っておくのは大事。ログがないと定期実行でエラーが起きても分からない。
     logger = Logger.new 'log/test.log'
  
-    Plan.all.each do |p| 
+    Plan.all.each do |plan| 
       # 出発時間を過ぎたら処理
-      if p.departure_at < Time.zone.now
+      if plan.departure_at < Time.zone.now
         begin
           # 処理
-          send_mail(p)
+          send_mail(plan)
    
         rescue => e
           #何かしらエラーが起きたら、エラーログの書き込み ただし次のユーザーの処理へは進む

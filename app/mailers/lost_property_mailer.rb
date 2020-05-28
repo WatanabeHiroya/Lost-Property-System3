@@ -1,10 +1,10 @@
 class LostPropertyMailer < ApplicationMailer
   def send_mail(plan)
     @plan = plan
-    @no_check_items = []
-    @plan.checklists.each do |c|
-      @no_check_items << c.item if c.check == "0" # c[:check]
-    end
+  #  @no_check_items = []
+  #  @plan.checklists.each do |c|
+  #    @no_check_items << c.item if c.check == "0" # c[:check]
+  #  end
     
     mail(
       from: 'lost.property.system@gmail.com',

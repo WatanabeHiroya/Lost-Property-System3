@@ -7,6 +7,6 @@ set :environment, rails_env
 # cronのログの吐き出し場所
 set :output, "#{Rails.root}/log/cron.log"
 
-#every 1.minutes do
-#  rake "test_system:test" 
-#end
+every 3.minutes do
+  rake "test_system:test" 
+end
