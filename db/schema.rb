@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200516131045) do
+ActiveRecord::Schema.define(version: 20200530075741) do
 
   create_table "checklists", force: :cascade do |t|
     t.string "item"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20200516131045) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "send_mail", default: "0"
     t.index ["user_id"], name: "index_plans_on_user_id"
   end
 
