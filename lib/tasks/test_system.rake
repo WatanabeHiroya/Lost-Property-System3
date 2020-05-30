@@ -7,10 +7,11 @@ namespace :test_system do
  
     Plan.all.each do |plan| 
       # 出発時間を過ぎたら処理
-      if plan.departure_at < Time.zone.now && plan.sent == "1"
+      if plan.departure_at < Time.zone.now && plan.send_mail == "0"
         begin
           # 処理
-          LostPropertyMailer.send_mail(plan).deliver
+         # plan.update_attributes(send_mail: "1")
+          LostPropertyMailer.send_mail(plan).deliver # コントローラに飛ばす？
       
         rescue => e
           #何かしらエラーが起きたら、エラーログの書き込み ただし次のユーザーの処理へは進む
