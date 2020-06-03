@@ -13,4 +13,5 @@ class Plan < ApplicationRecord
     errors.add(:departure_at, "は現在日時より後の日時を指定して下さい。") if departure_at < Time.now
   end
 
+  
 end

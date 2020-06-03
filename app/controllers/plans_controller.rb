@@ -48,6 +48,8 @@ class PlansController < ApplicationController
     redirect_to current_user
   end
   
+    
+  
   private
   
   def plan_params

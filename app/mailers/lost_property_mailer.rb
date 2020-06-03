@@ -1,6 +1,5 @@
 class LostPropertyMailer < ApplicationMailer
   def send_mail(plan)
-   # plan.update_attributes(send_mail: "1")
     @no_check_items = []
     plan.checklists.each do |c|
       @no_check_items << c.item if c.check == "0"
