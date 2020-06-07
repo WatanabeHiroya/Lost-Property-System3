@@ -16,6 +16,11 @@ gem 'jbuilder',     '~> 2.5'
 gem 'nested_form_fields'
 gem 'pry-rails'
 gem 'whenever', require: false
+gem 'omniauth'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'bootstrap-social-rails'
+gem 'font-awesome-rails'
 
 group :development, :test do
   gem 'sqlite3'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200530075741) do
+ActiveRecord::Schema.define(version: 20200607080305) do
 
   create_table "checklists", force: :cascade do |t|
     t.string "item"
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 20200530075741) do
     t.boolean "admin", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "uid"
+    t.string "provider"
   end
 
 end

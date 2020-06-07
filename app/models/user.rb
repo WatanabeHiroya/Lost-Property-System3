@@ -3,13 +3,14 @@ class User < ApplicationRecord
   attr_accessor :remember_token
   before_save { self.email = email.downcase }
   
-  validates :name, presence: true, length: { maximum: 50 }
+  validates :name, presence: true, length: { maximum: 50 }, unless: :uid? # 追加
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 100 },
                     format: { with: VALID_EMAIL_REGEX },
-                    uniqueness: true
-  has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+                    uniqueness: true, unless: :uid? # 追加
+  has_secure_password validations: false # 追加
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true, unless: :uid? # 追加
+  
   
   # 渡された文字列のハッシュ値を返します。
   def User.digest(string)
@@ -42,6 +43,23 @@ class User < ApplicationRecord
   def forget
     return false if remember_digest.nil? # ダイジェストが存在しない場合はfalseを返して終了
     update_attribute(:remember_digest, nil)
+  end
+  
+  
+  #auth hashからユーザ情報を取得
+  #データベースにユーザが存在するならユーザ取得して情報更新する；存在しないなら新しいユーザを作成する
+  def self.find_or_create_from_auth(auth)
+    provider = auth[:provider]
+    uid = auth[:uid]
+    name = auth[:info][:name]
+    image = auth[:info][:image]
+    #必要に応じて情報追加してください
+  
+    #ユーザはSNSで登録情報を変更するかもしれので、毎回データベースの情報も更新する
+    self.find_or_create_by(provider: provider, uid: uid) do |user|
+      user.username = name
+      user.image_path = image
+    end
   end
  
 end
