@@ -16,6 +16,7 @@ gem 'jbuilder',     '~> 2.5'
 gem 'nested_form_fields'
 gem 'pry-rails'
 gem 'whenever', require: false
+gem 'dotenv-rails'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
