@@ -6,7 +6,8 @@ class SessionsController < ApplicationController
   def create
     auth = request.env['omniauth.auth']
     if auth.present?
-      user = User.find_or_create_from_auth(request.env['omniauth.auth'])
+      user = User.find_or_create_from_auth(request.env['omniauth.auth']) # ユーザー情報の取得と更新
+      user.save(context: :facebook_login)
       log_in user # 一時的セッション
       flash[:success] = "ログインしました。"
       redirect_back_or user

@@ -2,13 +2,14 @@ class User < ApplicationRecord
   has_many :plans, dependent: :destroy
   attr_accessor :remember_token
 
-  validates :name, presence: true, length: { maximum: 50 }, unless: :uid?
+  before_save :email_downcase, unless: :uid?
+  validates :name, presence: true, unless: :uid?, length: { maximum: 50 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, length: { maximum: 100 },
+  validates :email, presence: true, unless: :uid?, length: { maximum: 100 },
                     format: { with: VALID_EMAIL_REGEX },
-                    uniqueness: true, unless: :uid?
+                    uniqueness: { case_sensitive: false}
   has_secure_password validations: false
-  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true, unless: :uid?
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   
   
   # 渡された文字列のハッシュ値を返します。
@@ -50,13 +51,20 @@ class User < ApplicationRecord
     provider = auth[:provider]
     uid = auth[:uid]
     name = auth[:info][:name]
-  #  image = auth[:info][:image]
-
+   # image = auth[:info][:image]
+    #必要に応じて情報追加してください
+  
     #ユーザはSNSで登録情報を変更するかもしれので、毎回データベースの情報も更新する
     self.find_or_create_by(provider: provider, uid: uid) do |user|
       user.name = name
-  #    user.image_path = image
+    #  user.image_path = image
     end
   end
- 
+  
+  private
+  
+  def email_downcase
+    self.email.downcase!
+  end
+   
 end
