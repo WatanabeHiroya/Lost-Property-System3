@@ -7,14 +7,12 @@
   </div>
   <div class="signup-btn">
     <%= link_to "新規登録", new_user_path, class: "btn btn-lg btn-success" %>
-    <%= link_to '/auth/facebook/', class: "btn btn-social btn-facebook" do %>
-      <span class="fa fa-facebook"></span> Facebookアカウントでログイン
-    <% end %>
-    <%= link_to '/auth/twitter', class: "btn btn-social btn-twitter" do %>
-      <span class="fa fa-twitter"></span> Twitterアカウントでログイン
-    <% end %>
-    <%= link_to '/auth/google_oauth2', class: "btn btn-social btn-google" do %>
-      <span class="fa fa-google"></span> Googleアカウントでログイン
-    <% end %>
+    <%= link_to "Facebook", '/auth/facebook/', class: "facebook" %>
+
+    <%= link_to "Twitter", '/auth/twitter', class: "twitter" %>
+
+    <%= link_to "Google", '/auth/google_oauth2', class: "google" %>
+
+    <%= link_to "LINE", '/auth/line', class: "line" %>
   </div>
 </div>
