@@ -20,6 +20,7 @@ gem 'dotenv-rails'
 gem 'omniauth'
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
 gem 'bootstrap-social-rails'
 gem 'font-awesome-rails'
 
