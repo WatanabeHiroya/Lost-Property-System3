@@ -5,9 +5,10 @@ class LostPropertyMailer < ApplicationMailer
       @no_check_items << c.item if c.check == "0"
     end
     
+    @user = User.find(plan.user_id)
     mail(
       from: 'lost.property.system@gmail.com',
-      to:   'lost.property.system@gmail.com', # 任意のユーザーのアドレス
+      to:   @user.email, # 任意のユーザーのアドレス
       subject: 'の出発予定時間のご連絡'
       )
   end
