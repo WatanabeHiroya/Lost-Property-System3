@@ -9,7 +9,7 @@ class LostPropertyMailer < ApplicationMailer
     mail(
       from: 'lost.property.system@gmail.com',
       to:   @user.email, # 任意のユーザーのアドレス
-      subject: 'の出発予定時間のご連絡'
+      subject: "#{plan.subject}の出発予定時間のご連絡"
       )
   end
 end

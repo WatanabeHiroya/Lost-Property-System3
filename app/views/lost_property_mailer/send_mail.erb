@@ -1,8 +1,10 @@
 <% if @no_check_items.present? %>
-  忘れ物があります！
-  <% @no_check_items.each do |item| %>
-    ・<%= item %>
-  <% end %>
+  <p>忘れ物があります！</p>
+  <ul>
+    <% @no_check_items.each do |item| %>
+      <li><%= item %></li>
+    <% end %>
+  </ul>
 <% else %>
   忘れ物はございません。いってらっしゃいませ！
 <% end %>
