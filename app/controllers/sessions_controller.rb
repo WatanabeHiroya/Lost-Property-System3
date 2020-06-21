@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
     auth = request.env['omniauth.auth']
     if auth.present?
       user = User.find_or_create_from_auth(request.env['omniauth.auth'])
+      user.update_attribute(:email, auth[:info][:email])
       log_in user # 一時的セッション
       flash[:success] = "ログインしました。"
       redirect_back_or user
