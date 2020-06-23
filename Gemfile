@@ -24,6 +24,7 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-line'
 gem 'bootstrap-social-rails'
 gem 'font-awesome-rails'
+gem 'line-bot-api'
 
 group :development, :test do
   gem 'sqlite3'
