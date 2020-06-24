@@ -9,5 +9,4 @@ set :output, "#{Rails.root}/log/cron.log"
 
 every 1.minutes do
   rake "test_system:test" 
-  rake 'push_line:push_line_message_morning'
 end
