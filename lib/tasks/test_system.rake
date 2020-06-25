@@ -21,16 +21,15 @@ namespace :test_system do
               @no_check_items << c.item if c.check == "0"
             end
             if @no_check_items.present?
-              @no_check_items.each do |item|
                 message = {
                   type: 'text',
-                  text: "忘れ物あり"
+                  text: "#{plan.subject}の出発予定時間のご連絡\n忘れ物があります！\n#{item}"
                 }
-              end
+              
             else
               message = {
                 type: 'text',
-                text: "忘れ物なし"
+                text: "#{plan.subject}の出発予定時間のご連絡\n忘れ物はございません。\nいってらっしゃいませ！"
               }
             end
             client = Line::Bot::Client.new { |config|
