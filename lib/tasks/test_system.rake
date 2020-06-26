@@ -21,13 +21,19 @@ namespace :test_system do
               @no_check_items << c.item if c.check == "0"
             end
             if @no_check_items.present?
-                message = {
+              messages = []
+                messages << {
                   type: 'text',
-                  text: "#{plan.subject}の出発予定時間のご連絡\n忘れ物があります！\n#{item}"
+                  text: "#{plan.subject}の出発予定時間のご連絡\n忘れ物があります！\n"
                 }
-              
+                @no_check_items.each do |item|
+                  messages << {
+                    type: 'text',
+                    text: "・#{item}"
+                  }
+                end
             else
-              message = {
+              messages = {
                 type: 'text',
                 text: "#{plan.subject}の出発予定時間のご連絡\n忘れ物はございません。\nいってらっしゃいませ！"
               }
@@ -36,7 +42,7 @@ namespace :test_system do
               config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
               config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
             }
-            response = client.push_message(user.uid, message)
+            response = client.push_message(user.uid, messages)
             p response
           else
             LostPropertyMailer.send_mail(plan).deliver
