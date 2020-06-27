@@ -44,6 +44,13 @@ h1 {
   font-weight: bold;
 }
 
+// ユーザーアイコン
+.user-image {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
 #logo:hover {
   color: #fff;
   text-decoration: none;

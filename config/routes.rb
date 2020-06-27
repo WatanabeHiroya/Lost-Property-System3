@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   delete '/login', to: 'sessions#destroy'
   get 'auth/:provider/callback', to: 'sessions#create'
   get '/auth/failure',           to: 'sessions#auth_failure'
-  post :line_events, to: 'line_events#recieve'
 
   resources :users do
     resources :plans do

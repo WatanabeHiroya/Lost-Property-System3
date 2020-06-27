@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20200607080305) do
     t.datetime "updated_at", null: false
     t.string "uid"
     t.string "provider"
+    t.string "image_url"
   end
 
 end
