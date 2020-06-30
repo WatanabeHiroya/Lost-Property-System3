@@ -22,6 +22,7 @@ class PlansController < ApplicationController
   end
   
   def edit
+    @checklists = Checklist.where(plan_id: @plan.id)
   end
   
   def update
@@ -63,6 +64,7 @@ class PlansController < ApplicationController
   # beforeフィルター
   
   def set_plan
-    @plan = Plan.find(params[:user_id])
+   # @plan = Plan.find(params[:user_id])
+    @plan = Plan.find(params[:id])
   end
 end

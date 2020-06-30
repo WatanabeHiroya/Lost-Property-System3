@@ -9,7 +9,7 @@
           <li><%= link_to "ユーザー一覧", users_path %></li>
           <li><%= link_to "アカウント設定", edit_user_path(current_user) %></li>
           <li><%= link_to "ログアウト", login_path, method: :delete %></li>
-          <li><%= image_tag @user.image_url, class:"user-image" %></li>
+          <li><%= image_tag @user.image_url, class:"user-image" if @user.present? && @user.image_url.present? %></li>
         <% else %>
           <li><%= link_to "ログイン", login_path %></li>
         <% end %>

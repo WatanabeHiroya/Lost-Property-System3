@@ -15,7 +15,7 @@
           <tr>
             <td><%= l plan.departure_at, format: :default2 %></td>
             <td><%= link_to plan.subject, user_plan_path(plan) %></td>
-            <td><%= link_to "編集", edit_user_plan_path(plan), class: "btn btn-success" %></td>
+            <td><%= link_to "編集", edit_user_plan_path(plan.user_id, plan), class: "btn btn-success" %></td>
             <td><%= link_to "削除", user_plan_path(plan), method: :delete,
                     data: { confirm: "#{plan.subject}を削除してよろしいですか？" },
                     class: "btn btn-danger" %>

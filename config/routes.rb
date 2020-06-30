@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :plans do
+      resources :checklists, only: :destroy
       member do
         patch :check
       end

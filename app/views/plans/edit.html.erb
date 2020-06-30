@@ -16,10 +16,14 @@
       
       <%= f.label :item, class: "label-#{yield(:class_text)}" %>
       <%= f.nested_fields_for :checklists, wrapper_tag: :tr do |q| %>
-        <td><%= q.text_field :item, class: 'form-control' %><%= q.hidden_field :id %></td>
-          <td><%= q.remove_nested_fields_link '削除', class: 'btn btn-danger', role: 'button' %></td>
+        <td><%= q.text_field :item, class: 'form-control' %></td><%= q.hidden_field :id %>
+        <% @checklists.each do |checklist| %>
+        <td><%= link_to "削除", user_plan_checklist_path(@plan.user_id, @plan, checklist), method: :delete,
+                data: { confirm: "削除してよろしいですか？" },
+                class: "btn btn-danger" %></td>
       <% end %>
-      
+      <% end %>
+
       <%= f.add_nested_fields_link :checklists, '追加', class: 'btn btn-primary', role: 'button' %>
       
       <%= f.submit yield(:button_text), class: "btn btn-primary btn-block btn-#{yield(:class_text)}" %>
