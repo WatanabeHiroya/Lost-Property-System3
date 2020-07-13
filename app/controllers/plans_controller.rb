@@ -26,7 +26,7 @@ class PlansController < ApplicationController
   end
   
   def update
-    if @plan.update_attributes(plan_params) # フォーム追加したものだけが飛んできている
+    if @plan.update_attributes(plan_params) 
       flash[:success] = "チェックリストを更新しました。"
       redirect_to current_user
     else
