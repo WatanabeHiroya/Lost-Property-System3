@@ -1,5 +1,8 @@
 class PlansController < ApplicationController
+  before_action :set_user2, only: [:show, :edit]
   before_action :set_plan, only: [:edit, :update, :show, :check, :destroy]
+  before_action :admin_or_correct_user, only: [:show, :edit, :update]
+  before_action :admin_user, only: [:destroy]
   
   def new
    # @user = User.find(params[:id])
@@ -61,10 +64,4 @@ class PlansController < ApplicationController
     params.permit(checklists: [:check])[:checklists]
   end
   
-  # beforeフィルター
-  
-  def set_plan
-   # @plan = Plan.find(params[:user_id])
-    @plan = Plan.find(params[:id])
-  end
 end
