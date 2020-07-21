@@ -21,20 +21,16 @@
             <%= link_to "新規登録", new_user_path, class: "btn btn-lg btn-danger" %>
           </div>
           <div class="sns-login">
-            <ul class="snsbtniti2">
-              <li><%= link_to "Twitter", '/auth/twitter', class: "flowbtn15 fl_tw1" %></li>
-              <li><%= link_to "Google", '/auth/goole_oauth2', class: "flowbtn15 google_btn15" %></li>
-              <li><%= link_to "LINE", '/auth/line', class: "btn btn-block btn-social button line-button" %></li>
-
+            <ul class="sns-btn">
               <li><%= link_to '/auth/twitter', class: "btn btn-social btn-twitter" do %>
                     <span class="fa fa-twitter"></span> Twitterアカウントでログイン
                   <% end %>
               </li>
-              <li><%= link_to '/auth/google_oauth2', class: "btn btn-social btn-google" do %>
-                    <span class="fa fa-google"></span> Googleアカウントでログイン
+              <li><%= link_to '/auth/google_oauth2', class: "google-btn" do %>
+                    <img src="/assets/btn_google_signin_dark_pressed_web@2x.png">
                   <% end %>
               </li>
-              <li><%= link_to '/auth/line', class: "btn btn-social btn-line" do %>
+              <li><%= link_to '/auth/line', class: "btn-line" do %>
                     <img src="/assets/btn_login_base.png">
                   <% end %>
               </li>
