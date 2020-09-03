@@ -1,9 +1,8 @@
 <div class="container">
-<h1><%= @user.name %>さんのチェックリスト</h1>
-  <div><%= link_to "新規作成", new_user_plan_path(@user), class: "btn btn-primary btn-new-checklist" %></div>
-  <div class="col-md-10 col-md-offset-1">
-    
-    <table class="table table-condensed table-hover" id="table-users">
+<h1 class="list-title"><%= @user.name %>'s List</h1>
+  <div class="col-md-6 col-md-offset-8"><%= link_to "新規作成", new_user_plan_path(@user), class: "btn btn-primary btn-new-checklist" %></div>
+  <div class="col-md-6 col-md-offset-3">
+    <table class="table table-condensed" id="table-users">
       <thead>
         <tr>
           <th>出発日時</th>
@@ -12,9 +11,9 @@
       </thead>
       <tbody>
         <% @plans.each do |plan| %>
-          <tr>
+          <tr class="plan-list">
             <td><%= l plan.departure_at, format: :default2 %></td>
-            <td><%= link_to plan.subject, user_plan_path(@user, plan) %></td>
+            <td><%= link_to plan.subject, user_plan_path(@user, plan), :style=>"color:white;" %></td>
             <td><%= link_to "編集", edit_user_plan_path(@user, plan), class: "btn btn-success" %></td>
             <td><%= link_to "削除", user_plan_path(@user, plan), method: :delete,
                     data: { confirm: "#{plan.subject}を削除してよろしいですか？" },

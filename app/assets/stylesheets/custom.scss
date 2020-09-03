@@ -63,6 +63,7 @@ h1 {
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
+  color: white;
 }
 
 //debug
@@ -132,6 +133,7 @@ h1 {
 
 .label-login {
   margin-top: 5px;
+  color: white;
 }
 
 .btn-login {
@@ -143,14 +145,22 @@ h1 {
   margin-left: 25px;
   span {
     font-weight: normal;
+    color: whitesmoke;
   }
+}
+
+.login-form {
+  color: whitesmoke;
 }
 
 //ユーザーホームページ
 
-.btn-new-checklist {
-  float: right;
-  margin-right: 50px;
+.list-title {
+  font-family: Comic Sans MS;
+}
+
+.plan-list td {
+  color: white;
 }
 
 //プラン作成ページ
@@ -161,10 +171,15 @@ h1 {
 
 //SNSログイン
 
-.btn-line img {
-  height: 40px;
+.login-btn {
+  text-align: center;
 }
 
-.google-btn img {
+.sns-login {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.btn-line img {
   height: 40px;
 }
