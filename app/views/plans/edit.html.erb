@@ -2,27 +2,9 @@
 <% provide(:class_text, 'edit-plan') %>
 <% provide(:button_text, '更新') %>
 
-<h1>プラン編集</h1>
+<h1 class="edit-plan-title">Edit Plan</h1>
 <div class="container">
-  <div class="col-md-8 col-md-offset-3">
-    <%= form_with(model: @plan, url: user_plan_path, local: true) do |f| %>
-      <%= render 'shared/error_messages2', object: @plan %>
-      
-      <%= f.label :departure_at, class: "label-#{yield(:class_text)}"%>
-      <%= f.datetime_field :departure_at, class: "form-control" %>
-    
-      <%= f.label :subject, class: "label-#{yield(:class_text)}" %>
-      <%= f.text_field :subject, class: "form-control" %>
-      
-      <%= f.label :item, class: "label-#{yield(:class_text)}" %>
-      <%= f.nested_fields_for :checklists, wrapper_tag: :tr do |q| %>
-        <td><%= q.text_field :item, class: 'form-control' %></td><%= q.hidden_field :id %>
-        <td><%= q.remove_nested_fields_link '削除', class: 'btn btn-danger', role: 'button' %></td>
-      <% end %>
-      
-      <%= f.add_nested_fields_link :checklists, '追加', class: 'btn btn-primary', role: 'button' %>
-      
-      <%= f.submit yield(:button_text), class: "btn btn-primary btn-block btn-#{yield(:class_text)}" %>
-    <% end %> 
+  <div class="col-md-6 col-md-offset-3">
+    <%= render 'form' %>
   </div>
 </div>

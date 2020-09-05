@@ -2,11 +2,13 @@
 <h1 class="list-title"><%= @user.name %>'s List</h1>
   <div class="col-md-6 col-md-offset-8"><%= link_to "新規作成", new_user_plan_path(@user), class: "btn btn-primary btn-new-checklist" %></div>
   <div class="col-md-6 col-md-offset-3">
-    <table class="table table-condensed" id="table-users">
+   <table class="table table-condensed" id="table-users">
       <thead>
         <tr>
           <th>出発日時</th>
           <th>件名</th>
+          <th></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -14,10 +16,10 @@
           <tr class="plan-list">
             <td><%= l plan.departure_at, format: :default2 %></td>
             <td><%= link_to plan.subject, user_plan_path(@user, plan), :style=>"color:white;" %></td>
-            <td><%= link_to "編集", edit_user_plan_path(@user, plan), class: "btn btn-success" %></td>
-            <td><%= link_to "削除", user_plan_path(@user, plan), method: :delete,
+            <td><%= link_to image_tag('えんぴつのアイコン素材.png', width: '30'), edit_user_plan_path(@user, plan), class: "btn-edit" %></td>
+            <td><%= link_to image_tag('スタンダードなゴミ箱アイコン.png', width: '30'), user_plan_path(@user, plan), method: :delete,
                     data: { confirm: "#{plan.subject}を削除してよろしいですか？" },
-                    class: "btn btn-danger" %>
+                    class: "btn-delete" %>
             </td>
           </tr>
         <% end %>

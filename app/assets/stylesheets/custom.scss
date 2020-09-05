@@ -56,14 +56,16 @@ body {
 
 //universal
 
-//typography
-
 h1 {
   font-size: 3em;
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
   color: white;
+}
+
+.signup-title, .list-title, .new-plan, .login-title, .edit-plan-title, .account-title {
+  font-family: Comic Sans MS;
 }
 
 //debug
@@ -133,7 +135,6 @@ h1 {
 
 .label-login {
   margin-top: 5px;
-  color: white;
 }
 
 .btn-login {
@@ -155,18 +156,24 @@ h1 {
 
 //ユーザーホームページ
 
-.list-title {
-  font-family: Comic Sans MS;
-}
-
 .plan-list td {
   color: white;
 }
 
-//プラン作成ページ
+//プラン作成・編集ページ
 
-.btn-new-plan {
+.label-new-plan, .label-edit-plan {
+  margin-top: 5px;
+}
+
+.btn-new-plan, .btn-edit-plan {
   margin-top: 10px;
+}
+
+//チェックページ
+
+.item {
+  color: white;
 }
 
 //SNSログイン

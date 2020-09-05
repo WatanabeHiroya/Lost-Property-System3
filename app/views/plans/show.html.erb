@@ -1,13 +1,13 @@
 <% provide(:title, 'チェックページ') %>
 <% provide(:class_text, 'check') %>
-<% provide(:button_text, '送信') %>
+<% provide(:button_text, '更新') %>
 
 <div class="container">
   <h1><%= @plan.subject %></h1>
   <h2><%= l @plan.departure_at, format: :default2 %></h2>
-  <div class="col-md-10 col-md-offset-1">
+  <div class="col-md-6 col-md-offset-3">
     <%= form_with(model: @checklist, url: check_user_plan_path, local: true, method: :patch) do |f| %>
-      <table class="table table-condensed table-hover" id="table-users">
+      <table class="table table-condensed" id="table-users">
         <thead>
           <tr>
             <th>チェック</th>
@@ -19,7 +19,7 @@
           <%= fields_for "checklists[]", checklist do |c| %>
           <tr>
             <td><%= c.check_box :check %></td>
-            <td><%= checklist.item %></td>
+            <td class="item"><%= checklist.item %></td>
           </tr>
           <% end %>
           <% end %>
