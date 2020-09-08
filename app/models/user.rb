@@ -54,14 +54,14 @@ class User < ApplicationRecord
     image = auth[:info][:image]
 
     # ユーザはSNSで登録情報を変更するかもしれので、毎回データベースの情報も更新する
-    user =  User.find_by(uid: uid)
-    user.update_attributes(name: name, image_url: image)
-    
+    if user =  User.find_by(uid: uid)
+      user.update_attributes(name: name, image_url: image)
+    end
     # find_or_create_by()は()の中の条件のものが見つければ取得し、なければ新しく作成するというメソッド
-      self.find_or_create_by(provider: provider, uid: uid) do |user|
-        user.name = name
-        user.image_url = image
-      end
+    self.find_or_create_by(provider: provider, uid: uid) do |user|
+      user.name = name
+      user.image_url = image
+    end
     
   end
   
