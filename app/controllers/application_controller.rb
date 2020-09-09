@@ -20,6 +20,14 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  # すでにログインしているか確認
+  def before_new
+    if logged_in?
+      flash[:info] = "すでにログインしています。"
+      redirect_to @current_user
+    end
+  end
+  
   # アクセスしたユーザーが現在ログインしているユーザーか確認
   def correct_user
     @user = User.find(params[:id])

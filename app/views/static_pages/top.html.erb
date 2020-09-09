@@ -1,35 +1,33 @@
 <% provide(:title, "Top") %>
 
-  <!-- Fixed navbar -->
-  <div class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <a class="navbar-brand"><b>忘れ物防止アプリ</b></a>
-      </div>
-
-      <!--/.nav-collapse -->
-    </div>
-  </div>
-
-  <div id="headerwrap">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6">
-          <h1 class="top-page-coment">チェックリストを使って<br>忘れ物がない日々を</h1>
-          <div class="login-btn">
+<div id="headerwrap">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <h1 class="top-page-coment">チェックリストを使って<br>忘れ物がない日々を</h1>
+        <div class="login-btn">
+          <% if current_user %>
+            <%= link_to "ログイン", login_path, class: "btn btn-lg btn-success disabled" %>
+            <%= link_to "新規登録", new_user_path, class: "btn btn-lg btn-danger disabled" %>
+          <% else %>
             <%= link_to "ログイン", login_path, class: "btn btn-lg btn-success" %>
             <%= link_to "新規登録", new_user_path, class: "btn btn-lg btn-danger" %>
-          </div>
-          <div class="sns-login">
+          <% end %>
+        </div>
+        <div class="sns-login">
+          <% if current_user %>
+            <p class="logging-in">Logging in..</p>
+          <% else %>
             <p><%= link_to '/auth/line', class: "btn-line" do %>
-                  <img src="/assets/btn_login_base.png">
-                <% end %>
+                 <img src="/assets/btn_login_base.png">
+               <% end %>
             </p>
-          </div>
+          <% end %>
         </div>
-        <div class="col-lg-6">
-          <img class="img-responsive" src="/assets/ipad-hand.png">
-        </div>
+      </div>
+      <div class="col-lg-6">
+        <img class="img-responsive" src="/assets/ipad-hand.png">
       </div>
     </div>
   </div>
+</div>

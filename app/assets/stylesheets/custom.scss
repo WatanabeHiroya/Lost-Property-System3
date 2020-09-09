@@ -64,7 +64,7 @@ h1 {
   color: white;
 }
 
-.signup-title, .list-title, .new-plan, .login-title, .edit-plan-title, .account-title {
+.signup-title, .list-title, .new-plan, .login-title, .edit-plan-title, .account-title, .logging-in {
   font-family: Comic Sans MS;
 }
 
@@ -112,6 +112,10 @@ h1 {
   td {
     vertical-align: middle;
   }
+}
+
+.users-list {
+  
 }
 
 //error_messages

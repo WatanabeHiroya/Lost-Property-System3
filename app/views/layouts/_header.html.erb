@@ -3,15 +3,13 @@
     <a class="navbar-brand"><b>忘れ物防止アプリ</b></a>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Top", root_path %></li>
         <% if logged_in? %>
-          <li><%= link_to "ユーザーホーム", current_user %></li>
-          <li><%= link_to "ユーザー一覧", users_path if current_user.admin? %></li>
-          <li><%= link_to "アカウント設定", edit_user_path(current_user) %></li>
-          <li><%= link_to "ログアウト", login_path, method: :delete %></li>
+          <li><%= link_to "Top", root_url %></li>
+          <li><%= link_to "Home", current_user %></li>
+          <li><%= link_to "Users", users_path if current_user.admin? %></li>
+          <li><%= link_to "Account", edit_user_path(current_user) %></li>
+          <li><%= link_to "Logout", login_path, method: :delete %></li>
           <li><%= image_tag @user.image_url, class:"user-image" if @user.present? && @user.image_url.present? %></li>
-        <% else %>
-          <li><%= link_to "ログイン", login_path %></li>
         <% end %>
       </ul>
     </nav>
