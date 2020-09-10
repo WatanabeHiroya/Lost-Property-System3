@@ -8,20 +8,23 @@
       <thead>
         <tr>
           <th><%= User.human_attribute_name :name %></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
         <% @users.each do |user| %>
-          <tr>
-            <td><%= link_to user.name, user %></td>
-            <td>
-              <% if current_user.admin? && !current_user?(user) %>
-                <%= link_to "削除", user, method: :delete,
-                    data: { confirm: "削除してよろしいですか？" },
-                    class: "btn btn-danger" %>
-              <% end %>
-            </td>
-          </tr>
+          <% unless user.name == "管理者" %>
+            <tr>
+              <td><%= link_to user.name, user, :style=>"color:white;" %></td>
+              <td>
+                <% if current_user.admin? && !current_user?(user) %>
+                  <%= link_to "削除", user, method: :delete,
+                      data: { confirm: "削除してよろしいですか？" },
+                      class: "btn btn-danger" %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
         <% end %>
       </tbody>
     </table>
