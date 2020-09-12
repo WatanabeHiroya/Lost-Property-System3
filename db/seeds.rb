@@ -17,3 +17,21 @@ User.create!(name: "test2",
              password: "password",
              password_confirmation: "password",
              admin: false)
+             
+User.create!(name: "test3",
+             email: "test3@email.com",
+             password: "password",
+             password_confirmation: "password",
+             admin: false)
+             
+User.create!(name: "test4",
+             email: "test4@email.com",
+             password: "password",
+             password_confirmation: "password",
+             admin: false)
+             
+User.create!(name: "test5",
+             email: "test5@email.com",
+             password: "password",
+             password_confirmation: "password",
+             admin: false)

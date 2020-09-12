@@ -1,7 +1,7 @@
 class PlansController < ApplicationController
   before_action :set_user2, only: [:show, :edit, :destroy]
   before_action :set_plan, only: [:edit, :update, :show, :check, :destroy]
-  before_action :admin_or_correct_user, only: [:show, :edit, :update, :delete]
+  before_action :admin_or_correct_user, only: [:show, :check, :edit, :update, :destroy]
 
   def new
    # @user = User.find(params[:id])

@@ -6,6 +6,8 @@
 <div class="container">
   <div class="col-md-6 col-md-offset-3">
     <%= render 'form' %>
+    <p>アカウントを削除する方は<%= link_to "こちら", user_path, method: :delete,
+       data: { confirm: "削除してよろしいですか？" } %></p>
   </div>
   
 </div>
