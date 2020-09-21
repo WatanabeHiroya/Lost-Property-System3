@@ -16,7 +16,7 @@
         <% @users.each do |user| %>
           <% unless user.name == "管理者" %>
             <tr>
-              <td><%= link_to user.name, user, :style=>"color:white;" %></td>
+              <td class="users-index"><%= user.name %></td>
               <td><%= link_to image_tag('えんぴつのアイコン素材.png', width: '30'), edit_user_path(user), class: "btn-edit" %></td>
               <td><%= link_to image_tag('スタンダードなゴミ箱アイコン.png', width: '30'), user, method: :delete,
                       data: { confirm: "削除してよろしいですか？" },
