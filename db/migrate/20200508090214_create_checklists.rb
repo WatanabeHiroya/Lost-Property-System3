@@ -1,11 +1,12 @@
-class CreateChecklists < ActiveRecord::Migration[5.1]
+class CreatePlans < ActiveRecord::Migration[5.1]
   def change
-    create_table :checklists do |t|
-      t.string :item
-      t.string :check, default: "0"
-      t.references :plan, foreign_key: true
+    create_table :plans do |t|
+      t.string :subject
+      t.datetime :departure_at
+      t.references :user, foreign_key: true
 
       t.timestamps
     end
   end
 end
+
