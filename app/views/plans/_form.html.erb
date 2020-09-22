@@ -1,4 +1,5 @@
 <%= form_with(model: @plan, url: user_plans_path, local: true) do |f| %>
+
   <%= render 'shared/error_messages2', object: @plan %>
   
   <%= f.label :departure_at, class: "label-#{yield(:class_text)}"%>
