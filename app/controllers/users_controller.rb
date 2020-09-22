@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   end
   
   def show
-    @plans = Plan.where(user_id: @user.id)
+    @plans = Plan.where(user_id: @user.id).order(departure_at: "ASC")
   end
   
   def edit
