@@ -2,7 +2,7 @@
 
   <%= render 'shared/error_messages2', object: @plan %>
   
-  <%= f.label :departure_at, class: "label-#{yield(:class_text)}"%>
+  <%= f.label :departure_at, class: "label-#{yield(:class_text)}"%><span class="caution">&emsp;※最大で10分遅れて通知されます</span>
   <%= f.datetime_field :departure_at, class: "form-control" %>
 
   <%= f.label :subject, class: "label-#{yield(:class_text)}" %>
