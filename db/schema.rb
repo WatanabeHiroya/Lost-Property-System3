@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20200607080305) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "send_mail", default: "0"
+    t.string "prior_send_mail", default: "0"
     t.index ["user_id"], name: "index_plans_on_user_id"
   end
 
