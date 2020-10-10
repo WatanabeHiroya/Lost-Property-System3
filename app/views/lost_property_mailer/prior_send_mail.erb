@@ -1,0 +1,10 @@
+<% if @no_check_items.present? %>
+  <p>忘れ物があります！</p>
+  <ul>
+    <% @no_check_items.each do |item| %>
+      <li><%= item %></li>
+    <% end %>
+  </ul>
+<% else %>
+  忘れ物はございません。
+<% end %>
