@@ -28,7 +28,8 @@ class PlansController < ApplicationController
   end
   
   def update
-    if @plan.update_attributes(plan_params) 
+    if @plan.update_attributes(plan_params)
+      @plan.update_attributes(send_mail: "0", prior_send_mail: "0")
       flash[:success] = "チェックリストを更新しました。"
       redirect_to current_user
     else
